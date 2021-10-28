@@ -2,8 +2,16 @@ import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 
 class AppState extends EventEmitter {
-  /** @type {import('./Models/Value').Value[]} */
-  values = []
+   /** @type {import('./Models/Question').Question[]} */
+   questions = []
+
+   /** @type {import('./Models/Question').Question} */
+   activeQuestion = null
+
+  /** @type {import('./Models/Player').Player} */
+  player = null
+
+  playingGame = false
 }
 
 export const ProxyState = new Proxy(new AppState(), {
